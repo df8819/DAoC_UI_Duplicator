@@ -2,7 +2,7 @@ Hi all,
 
 I'm a toon enthusiast and was sick of copy/paste/rename "character-53.ini's" manually. So I made an app for that.
 
-Please copy the downloaded .exe into your LotM folder (default --> C:\Users\<USER>\AppData\Roaming\Electronic Arts\Dark Age of Camelot\LotM") for it to work.
+Please copy the "pyinstalled" (or downloaded) .exe into your LotM folder (default --> C:\Users\<USER>\AppData\Roaming\Electronic Arts\Dark Age of Camelot\LotM") for it to work.
 
 How to use:
 
