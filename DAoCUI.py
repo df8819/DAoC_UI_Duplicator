@@ -91,7 +91,7 @@ class App:
         webbrowser.open(url)
 
     def download(self):
-        url = "https://github.com/df8819/DAoC_UI_Duplicator/releases/tag/zip"
+        url = "https://github.com/df8819/DAoC_UI_Duplicator/releases"
         webbrowser.open(url)
 
     def find_ini_files(self):
