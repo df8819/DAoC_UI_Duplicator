@@ -91,7 +91,7 @@ class App:
         webbrowser.open(url)
 
     def download(self):
-        url = "https://drive.google.com/drive/folders/1LE3B-SYddEgIawB8gVQ4EYO7xa4LWM-B"
+        url = "https://github.com/df8819/DAoC_UI_Duplicator/releases/tag/zip"
         webbrowser.open(url)
 
     def find_ini_files(self):
