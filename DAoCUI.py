@@ -1,15 +1,15 @@
-import json
+#import json
 import os
 import shutil
 import sys
-import tkinter as tk
+#import tkinter as tk
 from tkinter import ttk
-from tkinter import filedialog
+#from tkinter import filedialog
 from tkinter import messagebox
 from tkinter import font
 import webbrowser
 import tkinter as tk
-from PIL import ImageTk, Image
+#from PIL import ImageTk, Image
 
 class App:
     def __init__(self, master):
@@ -24,7 +24,7 @@ class App:
         # Grid layout
         master.columnconfigure((0, 1), weight=1)  # Allow columns to expand to fill available space
 
-        # Insert image
+        # Insert image (Experimental)
         #image_path = r"C:\Users\<user>\1688677692.png"  # Replace with the path to your image file
         #image = Image.open(image_path)
         #image = image.resize((75, 67))  # Resize the image if needed
@@ -35,6 +35,11 @@ class App:
         file_label.grid(row=0, column=0, padx=5, pady=5, sticky='w')
 
         self.ui_files = self.find_ini_files()
+        if not self.ui_files:
+            messagebox.showerror("Check folder ▼ ▼ ▼", "No .ini files found. Please move to: \n\n<DRIVE>:\\Users\\<USER>\\AppData\\Roaming\\Electronic Arts\\Dark Age of Camelot\\LotM\n\n and try again.")
+            master.destroy()
+            return
+
         self.selected_file = tk.StringVar()
 
         self.file_dropdown = ttk.OptionMenu(master, self.selected_file, "", *self.ui_files)
@@ -70,9 +75,6 @@ class App:
         self.cancel_button = tk.Button(master, text="Quit", command=self.cancel_program, font=base_font)
         self.cancel_button.grid(row=5, column=1, padx=5, pady=5, sticky='e')
 
-        #self.reddid_post = tk.Button(master, text="User Guide", command=self.reddid_post, font=base_font)
-        #self.reddid_post.grid(row=4, column=0, padx=5, pady=5, sticky='w')
-
         self.download = tk.Button(master, text="Git Release Download", command=self.download, font=base_font)
         self.download.grid(row=3, column=0, padx=5, pady=5, sticky='w')
 
@@ -82,9 +84,11 @@ class App:
         #label = tk.Label(master, image=photo)
         #label.grid(row=5, column=0, padx=5, pady=5, sticky='w')
 
+        #self.reddid_post = tk.Button(master, text="User Guide", command=self.reddid_post, font=base_font)
+        #self.reddid_post.grid(row=4, column=0, padx=5, pady=5, sticky='w')
 
         # Add version label here
-        ispy_label = tk.Label(master, text="©ISPY4ever - v1.1.0", font=("Arial", 8, "bold"), fg="blue")
+        ispy_label = tk.Label(master, text="v1.1.0", font=("Arial", 8, "bold"), fg="blue")
         ispy_label.grid(row=6, column=1, sticky='e', padx=0, pady=5)
 
         ispy_label.bind("<Button-1>", self.open_link)
@@ -129,6 +133,8 @@ class App:
     def cancel_program(self):
             self.master.destroy()
 
+
 root = tk.Tk()
 app = App(root)
+#app.check_ini_files()  # Check for .ini files before running the app
 root.mainloop()
