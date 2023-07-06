@@ -8,19 +8,27 @@ from tkinter import filedialog
 from tkinter import messagebox
 from tkinter import font
 import webbrowser
+import tkinter as tk
+from PIL import ImageTk, Image
 
 class App:
     def __init__(self, master):
         self.master = master
-        master.title("Easy DAoC UI Copy-Pasta App")
+        master.title("DAoC UI Duplicator")
         master.geometry("360x240")
         master.resizable(0, 0)
         self.center_window()
 
-        base_font = font.Font(size=10)
+        base_font = font.Font(size=11)
 
         # Grid layout
         master.columnconfigure((0, 1), weight=1)  # Allow columns to expand to fill available space
+
+        # Insert image
+        #image_path = r"C:\Users\<user>\1688677692.png"  # Replace with the path to your image file
+        #image = Image.open(image_path)
+        #image = image.resize((75, 67))  # Resize the image if needed
+        #photo = ImageTk.PhotoImage(image)
 
         # Add label for dropdown 1 description
         file_label = tk.Label(master, text="Select existing Character:", font=base_font)
@@ -50,27 +58,34 @@ class App:
         self.filename_label = tk.Label(master, text="New Character name:", font=base_font)
         self.filename_label.grid(row=2, column=0, padx=5, pady=5, sticky='w')
 
-        self.filename_entry = tk.Entry(master)
+        self.filename_entry = tk.Entry(master, font=base_font)
         self.filename_entry.grid(row=2, column=1, padx=5, pady=5, sticky='we')
 
-        self.copy_button = tk.Button(master, text="Copy UI", command=self.copy_ui, font=base_font)
+        self.copy_button = tk.Button(master, text="Copy UI to new Char", command=self.copy_ui, font=base_font)
         self.copy_button.grid(row=3, column=1, padx=5, pady=5, sticky='we')
 
+        label = tk.Label(root, text="")
+        label.grid(row=4, column=1, padx=5, pady=5, sticky='e')
+
         self.cancel_button = tk.Button(master, text="Quit", command=self.cancel_program, font=base_font)
-        self.cancel_button.grid(row=4, column=1, padx=5, pady=5, sticky='we')
+        self.cancel_button.grid(row=5, column=1, padx=5, pady=5, sticky='e')
 
-        self.reddid_post = tk.Button(master, text="User Guide", command=self.reddid_post, font=base_font)
-        self.reddid_post.grid(row=4, column=0, padx=5, pady=5, sticky='w')
+        #self.reddid_post = tk.Button(master, text="User Guide", command=self.reddid_post, font=base_font)
+        #self.reddid_post.grid(row=4, column=0, padx=5, pady=5, sticky='w')
 
-        self.download = tk.Button(master, text="Updates", command=self.download, font=base_font)
+        self.download = tk.Button(master, text="Git Release Download", command=self.download, font=base_font)
         self.download.grid(row=3, column=0, padx=5, pady=5, sticky='w')
 
         label = tk.Label(master, text="", font=("Arial", 8, "bold"), fg="blue")
         label.grid(row=5, column=1, sticky='w', padx=0, pady=5)
 
+        #label = tk.Label(master, image=photo)
+        #label.grid(row=5, column=0, padx=5, pady=5, sticky='w')
+
+
         # Add version label here
         ispy_label = tk.Label(master, text="©ISPY4ever - v1.1.0", font=("Arial", 8, "bold"), fg="blue")
-        ispy_label.grid(row=6, column=1, sticky='w', padx=0, pady=5)
+        ispy_label.grid(row=6, column=1, sticky='e', padx=0, pady=5)
 
         ispy_label.bind("<Button-1>", self.open_link)
 
@@ -83,10 +98,11 @@ class App:
         self.master.geometry('{}x{}+{}+{}'.format(width, height, x, y))
 
     def open_link(self, event):
-        url = "https://www.reddit.com/user/ISPY4ever"  # Replace with the desired URL
+        url = "https://www.reddit.com/user/ISPY4ever"
         webbrowser.open(url)
 
     def reddid_post(self):
+        pass
         url = "https://www.reddit.com/r/daoc/comments/11dadu7/i_made_an_app_to_duplicate_uis_to_newly_created/"
         webbrowser.open(url)
 
