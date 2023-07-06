@@ -15,6 +15,4 @@ This should work for every freeshard too, if you chose the Ywain-server option w
 
 Have a great time playing, cheers :)
 
-GitHub link for .zip: https://github.com/df8819/DAoC_UI_Duplicator/releases/tag/zip
-
 reddit post: https://www.reddit.com/r/daoc/comments/11dadu7/i_made_an_app_to_duplicate_uis_to_newly_created/
