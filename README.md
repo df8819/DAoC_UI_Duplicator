@@ -16,3 +16,5 @@ This should work for every freeshard too, if you chose the Ywain-server option w
 Have a great time playing, cheers :)
 
 reddit post: https://www.reddit.com/r/daoc/comments/11dadu7/i_made_an_app_to_duplicate_uis_to_newly_created/
+
+![main window](/1689898857.png)
