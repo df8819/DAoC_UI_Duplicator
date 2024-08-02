@@ -1,5 +1,7 @@
-
 /.idea
 *.spec
 *.ico
-run pyinstaller.bat
+*.bat
+/build
+*.exe
+*.zip
