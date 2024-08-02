@@ -1,15 +1,17 @@
-#import json
+# import json
 import os
 import shutil
 import sys
-#import tkinter as tk
+# import tkinter as tk
 from tkinter import ttk
-#from tkinter import filedialog
+# from tkinter import filedialog
 from tkinter import messagebox
 from tkinter import font
 import webbrowser
 import tkinter as tk
-#from PIL import ImageTk, Image
+
+
+# from PIL import ImageTk, Image
 
 class App:
     def __init__(self, master):
@@ -25,10 +27,10 @@ class App:
         master.columnconfigure((0, 1), weight=1)  # Allow columns to expand to fill available space
 
         # Insert image (Experimental)
-        #image_path = r"C:\Users\<user>\1688677692.png"  # Replace with the path to your image file
-        #image = Image.open(image_path)
-        #image = image.resize((75, 67))  # Resize the image if needed
-        #photo = ImageTk.PhotoImage(image)
+        # image_path = r"C:\Users\<user>\1688677692.png"  # Replace with the path to your image file
+        # image = Image.open(image_path)
+        # image = image.resize((75, 67))  # Resize the image if needed
+        # photo = ImageTk.PhotoImage(image)
 
         # Add label for dropdown 1 description
         file_label = tk.Label(master, text="Select existing Character:", font=base_font)
@@ -36,7 +38,8 @@ class App:
 
         self.ui_files = self.find_ini_files()
         if not self.ui_files:
-            messagebox.showerror("Check folder ▼ ▼ ▼", "No .ini files found. Please move to: \n\n<DRIVE>:\\Users\\<USER>\\AppData\\Roaming\\Electronic Arts\\Dark Age of Camelot\\LotM\n\n and try again.")
+            messagebox.showerror("Check folder ▼ ▼ ▼",
+                                 "No .ini files found. Please move to: \n\n<DRIVE>:\\Users\\<USER>\\AppData\\Roaming\\Electronic Arts\\Dark Age of Camelot\\LotM\n\n and try again.")
             master.destroy()
             return
 
@@ -56,7 +59,8 @@ class App:
                               ("Ywain9", "-56"), ("Ywain10", "-57")]
 
         self.selected_ywain = tk.StringVar()
-        self.ywain_dropdown = ttk.OptionMenu(master, self.selected_ywain, "", *[name for name, num in self.ywain_options])
+        self.ywain_dropdown = ttk.OptionMenu(master, self.selected_ywain, "",
+                                             *[name for name, num in self.ywain_options])
         self.selected_ywain.set(self.ywain_options[0][0])
         self.ywain_dropdown.grid(row=1, column=1, padx=5, pady=5, sticky='we')
 
@@ -81,11 +85,11 @@ class App:
         label = tk.Label(master, text="", font=("Arial", 8, "bold"), fg="blue")
         label.grid(row=5, column=1, sticky='w', padx=0, pady=5)
 
-        #label = tk.Label(master, image=photo)
-        #label.grid(row=5, column=0, padx=5, pady=5, sticky='w')
+        # label = tk.Label(master, image=photo)
+        # label.grid(row=5, column=0, padx=5, pady=5, sticky='w')
 
-        #self.reddid_post = tk.Button(master, text="User Guide", command=self.reddid_post, font=base_font)
-        #self.reddid_post.grid(row=4, column=0, padx=5, pady=5, sticky='w')
+        # self.reddid_post = tk.Button(master, text="User Guide", command=self.reddid_post, font=base_font)
+        # self.reddid_post.grid(row=4, column=0, padx=5, pady=5, sticky='w')
 
         # Add version label here
         ispy_label = tk.Label(master, text="v1.1.0", font=("Arial", 8, "bold"), fg="blue")
@@ -131,10 +135,10 @@ class App:
         messagebox.showinfo("Copy Paste Rename App", f"UI successfully copied to {dest_file}")
 
     def cancel_program(self):
-            self.master.destroy()
+        self.master.destroy()
 
 
 root = tk.Tk()
 app = App(root)
-#app.check_ini_files()  # Check for .ini files before running the app
+# app.check_ini_files()  # Check for .ini files before running the app
 root.mainloop()
